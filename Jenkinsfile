@@ -39,7 +39,7 @@
                     }
                 }	
                 }
-                stage('Package on Master'){
+                stage('Package on slave1'){
                     agent any
                     steps{
                         sh 'mvn package'
