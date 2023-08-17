@@ -12,15 +12,15 @@
                         git 'https://github.com/adebayoadebusoye1/DevOpsAug8Code.git'
                     }
                 }
-                stage('Compile on Slave1'){
-                    agent {label 'slave1'}
+                stage('Compile on Slave2'){
+                    agent {label 'slave2'}
                     steps{
                         echo 'compiling...'
                         sh 'mvn compile'
                 }
                 }
-                stage('CodeReview on Slave2'){
-                    agent {label 'slave2'}
+                stage('CodeReview on Slave1'){
+                    agent {label 'slave1'}
                     steps{
                     
                 echo 'codeReview...'
