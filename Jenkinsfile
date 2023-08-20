@@ -12,22 +12,22 @@
                         git 'https://github.com/adebayoadebusoye1/DevOpsAug8Code.git'
                     }
                 }
-                stage('Compile on slave2'){
-                    agent {label 'slave2'}
+                stage('Compile on Slave1'){
+                    agent {label 'slave1'}
                     steps{
                         echo 'compiling...'
                         sh 'mvn compile'
                 }
                 }
-                stage('CodeReview on slave1'){
-                    agent {label 'slave1'}
+                stage('CodeReview on Slave2'){
+                    agent {label 'slave2'}
                     steps{
                     
                 echo 'codeReview...'
                         sh 'mvn pmd:pmd'
                     }
                 }
-                stage('UnitTest on slave2'){
+                stage('UnitTest on Slave2'){
                     agent {label 'slave2'}
                     steps{
                     echo 'Testing'
@@ -39,7 +39,7 @@
                     }
                 }	
                 }
-                stage('Package on slave1'){
+                stage('Package on Master'){
                     agent any
                     steps{
                         sh 'mvn package'
